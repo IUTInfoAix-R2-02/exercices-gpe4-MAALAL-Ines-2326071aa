@@ -17,33 +17,32 @@ public class Animation extends Application {
         root.setCenter(customButton);
         Scene scene = new Scene(root, 400, 400);
 
-        Duration duration = Duration.millis(1500);
+        Duration duration = Duration.millis(150);
         TranslateTransition transition1 = new TranslateTransition(duration, customButton);
-        TranslateTransition transition2 = new TranslateTransition(duration, customButton);
-        TranslateTransition transition3 = new TranslateTransition(duration, customButton);
-        TranslateTransition transition4 = new TranslateTransition(duration, customButton);
-
         transition1.setByX(150);
-        transition1.setByY(-150);
-        transition1.setAutoReverse(true);
-        transition1.setCycleCount(2);
-        transition2.setByX(150);
+
+        TranslateTransition transition2 = new TranslateTransition(duration, customButton);
         transition2.setByY(150);
-        transition2.setAutoReverse(true);
-        transition2.setCycleCount(2);
-        transition3.setByX(-150);
-        transition3.setByY(150);
-        transition3.setAutoReverse(true);
-        transition3.setCycleCount(2);
-        transition4.setByX(-150);
-        transition4.setByY(-150);
-        transition4.setAutoReverse(true);
-        transition4.setCycleCount(2);
 
-        SequentialTransition st = new SequentialTransition(transition1, transition2, transition3, transition4);
+        TranslateTransition transition3 = new TranslateTransition(duration, customButton);
+        transition3.setByX(-300);
 
+        TranslateTransition transition4 = new TranslateTransition(duration, customButton);
+        transition4.setByY(-300);
+
+        TranslateTransition transition5 = new TranslateTransition(duration, customButton);
+        transition5.setByX(300);
+
+        TranslateTransition transition6 = new TranslateTransition(duration, customButton);
+        transition6.setByY(150);
+
+
+
+
+    SequentialTransition st = new SequentialTransition(transition1, transition2, transition3, transition4, transition5,transition6);
+        st.setAutoReverse(true);
+        st.setCycleCount(2);
         customButton.setOnMousePressed(mouseEvent -> st.play());
-
 
         primaryStage.setTitle("Animation");
         primaryStage.setScene(scene);
@@ -51,7 +50,6 @@ public class Animation extends Application {
     }
 
     public static void main(String[] args) {
-
         Application.launch(args);
     }
 }

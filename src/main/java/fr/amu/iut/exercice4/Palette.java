@@ -82,3 +82,4 @@ public class Palette extends Application {
         primaryStage.show();
     }
 }
+
